@@ -152,7 +152,7 @@ jobs:
 
             # Trigger fdroid update
             kubectl exec -n ghost "$FDROID_POD" -- bash -c \
-              "export FDROID_KEY_STORE_PASS='${FDROID_KEYSTORE_PASSWORD}' FDROID_KEY_PASS='${FDROID_KEY_PASSWORD}' && cd /fdroid && fdroid update --create-metadata 2>&1"
+              "export FDROID_KEYSTORE_PASSWORD='${FDROID_KEYSTORE_PASSWORD}' FDROID_KEY_PASSWORD='${FDROID_KEY_PASSWORD}' && cd /fdroid && fdroid update --create-metadata 2>&1"
 
             echo "F-Droid repository updated at f-droid.pyrosec.is with version $VERSION"
           else
