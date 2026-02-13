@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnRASP</string>
+    <string name="xposed_description">Generic freeRASP bypass — defeats Talsec root/tamper detection in any app</string>
+    <string-array name="xposed_scope">
+        <!-- Scope to any app using freeRASP; user selects target in LSPosed -->
+    </string-array>
+</resources>
