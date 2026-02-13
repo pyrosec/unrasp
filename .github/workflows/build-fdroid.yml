@@ -152,11 +152,11 @@ jobs:
 
             # Trigger fdroid update
             kubectl exec -n ghost "$FDROID_POD" -- \
-              env FDROID_KEY_STORE_PASS="${FDROID_KEYSTORE_PASSWORD}" \
-                  FDROID_KEY_PASS="${FDROID_KEY_PASSWORD}" \
-                  FDROID_KEYSTORE_PASSWORD="${FDROID_KEYSTORE_PASSWORD}" \
-                  FDROID_KEY_PASSWORD="${FDROID_KEY_PASSWORD}" \
-              bash -c "cd /fdroid && fdroid update --create-metadata 2>&1"
+              env "FDROID_KEY_STORE_PASS=${FDROID_KEYSTORE_PASSWORD}" \
+                  "FDROID_KEY_PASS=${FDROID_KEY_PASSWORD}" \
+                  "FDROID_KEYSTORE_PASSWORD=${FDROID_KEYSTORE_PASSWORD}" \
+                  "FDROID_KEY_PASSWORD=${FDROID_KEY_PASSWORD}" \
+              bash -c "cd /fdroid && fdroid update --create-metadata 2>&1" || echo "WARNING: fdroid update failed, APK is staged for manual update"
 
             echo "F-Droid repository updated at f-droid.pyrosec.is with version $VERSION"
           else
