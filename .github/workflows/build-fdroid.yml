@@ -123,6 +123,7 @@ jobs:
           SIGNED_APK=$(ls signed-output/*.apk | head -1)
           FDROID_APK_NAME="is.pyrosec.unrasp_v${VERSION}.apk"
           cp "$SIGNED_APK" "signed-output/${FDROID_APK_NAME}"
+          cp "$SIGNED_APK" "signed-output/is.pyrosec.unrasp.apk"
 
           # Upload to GCS
           gsutil cp "signed-output/${FDROID_APK_NAME}" \
